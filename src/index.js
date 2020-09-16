@@ -1,7 +1,7 @@
 import Post from './Post';
 import './styles/main.css';
 import json from './assets/json.json';
-import WebpackLogo from './assets/webpack.jpg';
+import WebpackLogo from './assets/webpack.png';
 
 const post = new Post('Webpack post title', WebpackLogo);
 
