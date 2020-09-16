@@ -7,3 +7,13 @@
 h1 {
   text-align: center;
 }
+
+.logo {
+  background-image: url('../assets/webpack.jpg');
+  width: 200px;
+  height: 200px;
+  margin: 30px auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
