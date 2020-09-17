@@ -24,3 +24,16 @@ h1 {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.json {
+  width: 100%;
+  text-align: center;
+}
+
+.json-title {
+  color: blueviolet;
+  text-shadow: 1px 1px 4px rgb(43, 42, 42);
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+}

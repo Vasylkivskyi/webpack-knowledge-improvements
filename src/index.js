@@ -1,3 +1,4 @@
+import * as $ from 'jquery';
 import Post from '@models/Post';
 import './styles/main.css';
 import json from './assets/json.json';
@@ -7,6 +8,14 @@ import CSV from './assets/csv.csv';
 
 const post = new Post('Webpack post title', WebpackLogo);
 
+$('#json').html(
+  `<div class="json">
+     <div class="json-title">
+       Showing JSON using JQuery
+     </div>
+     <div>${post.toString()}</div>
+   </>`,
+);
 console.log('Post to string: ', post.toString());
 console.log('JSON: ', json);
 console.log('XML: ', XML);
