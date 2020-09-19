@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Vasylkivskyi/webpack-knowledge-improvements#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.1.1",
     "css-loader": "^4.3.0",
     "csv-loader": "^3.0.3",
     "file-loader": "^6.1.0",
