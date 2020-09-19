@@ -13,7 +13,7 @@ $('#json').html(
      <div class="json-title">
        Showing JSON using JQuery
      </div>
-     <div>${post.toString()}</div>
+     <pre>${post.toString()}</pre>
    </>`,
 );
 console.log('Post to string: ', post.toString());

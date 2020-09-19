@@ -27,12 +27,12 @@ h1 {
 
 .json {
   width: 100%;
-  text-align: center;
 }
 
 .json-title {
   color: blueviolet;
   text-shadow: 1px 1px 4px rgb(43, 42, 42);
+  text-align: center;
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 15px;
