@@ -5,7 +5,7 @@ import json from './assets/json.json';
 import WebpackLogo from './assets/webpack.png';
 import XML from './assets/xml.xml';
 import CSV from './assets/csv.csv';
-
+import './babel.js';
 const post = new Post('Webpack post title', WebpackLogo);
 
 $('#json').html(
