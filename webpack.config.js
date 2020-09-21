@@ -26,6 +26,8 @@ const optimization = () => {
   return config;
 };
 
+const createFileName = (ex) => (isDev ? `[name].${ex}` : `[name].[hash].${ex}`);
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
@@ -34,7 +36,7 @@ module.exports = {
     analytics: './analytics.js',
   },
   output: {
-    filename: '[name].[contenthash].js',
+    filename: createFileName('js'),
     path: path.resolve(__dirname, 'dist'),
   },
   optimization: optimization(),
@@ -59,7 +61,7 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: createFileName('css'),
     }),
   ],
   resolve: {
