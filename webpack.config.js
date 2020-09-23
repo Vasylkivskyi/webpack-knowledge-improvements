@@ -50,11 +50,8 @@ const babelOptions = (additional) => {
   if (additional) presets.push(additional);
 
   return {
-    loader: 'babel-loader',
-    options: {
-      presets,
-      plugins: ['@babel/plugin-proposal-class-properties'],
-    },
+    presets,
+    plugins: ['@babel/plugin-proposal-class-properties'],
   };
 };
 
@@ -74,6 +71,7 @@ module.exports = {
     port: 4200,
     hot: isDev,
   },
+  devtool: isDev ? 'source-map' : '',
   plugins: [
     new HTMLWebpackPlugin({
       template: './index.html',
@@ -130,17 +128,29 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: babelOptions(),
+        use: [
+          {
+            loader: 'babel-loader',
+            options: babelOptions(),
+          },
+          'eslint-loader',
+        ],
       },
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: babelOptions('@babel/preset-typescript'),
+        loader: {
+          loader: 'babel-loader',
+          options: babelOptions('@babel/preset-typescript'),
+        },
       },
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        use: babelOptions('@babel/preset-react'),
+        loader: {
+          loader: 'babel-loader',
+          options: babelOptions('@babel/preset-react'),
+        },
       },
     ],
   },

@@ -4,6 +4,8 @@ const start = async () => {
 
 start().then(console.log);
 
+const unUsedVar = 'Hi';
+
 class Util {
   static id = Date.now();
 }
