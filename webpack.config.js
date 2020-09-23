@@ -45,12 +45,25 @@ const cssLoaders = (additional) => {
   return loaders;
 };
 
+const babelOptions = (additional) => {
+  const presets = ['@babel/preset-env'];
+  if (additional) presets.push(additional);
+
+  return {
+    loader: 'babel-loader',
+    options: {
+      presets,
+      plugins: ['@babel/plugin-proposal-class-properties'],
+    },
+  };
+};
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: ['@babel/polyfill', './index.js'],
-    analytics: './analytics.ts',
+    main: ['@babel/polyfill', './index.jsx'],
+    analytics: ['@babel/polyfill', './analytics.ts'],
   },
   output: {
     filename: createFileName('js'),
@@ -115,26 +128,19 @@ module.exports = {
         use: ['csv-loader'],
       },
       {
-        test: /\.m?js$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-class-properties'],
-          },
-        },
+        use: babelOptions(),
       },
       {
-        test: /\.m?ts$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-typescript'],
-            plugins: ['@babel/plugin-proposal-class-properties'],
-          },
-        },
+        use: babelOptions('@babel/preset-typescript'),
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        use: babelOptions('@babel/preset-react'),
       },
     ],
   },
